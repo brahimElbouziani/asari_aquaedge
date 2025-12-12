@@ -1,0 +1,91 @@
+// ============================================
+// SCSS Mixins
+// ============================================
+
+// Responsive Breakpoints
+$breakpoints: (
+  'mobile': 768px,
+  'tablet': 991px,
+  'desktop': 1200px,
+  'large': 1600px
+);
+
+@mixin respond-to($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+// Flexbox Center
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Card Styles
+@mixin card-base {
+  background: var(--bg-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-color);
+  transition: box-shadow var(--transition-base);
+  
+  &:hover {
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+// Button Base
+@mixin button-base {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-md);
+  font-weight: 600;
+  transition: all var(--transition-base);
+  cursor: pointer;
+  border: none;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Page Container
+@mixin page-container {
+  width: 100%;
+  min-height: 100%;
+  padding: var(--spacing-lg);
+  background: var(--bg-color);
+  
+  // Reset left padding - parent has padding for floating buttons
+  padding-left: 0;
+  
+  @include respond-to('mobile') {
+    padding: var(--spacing-md);
+    padding-left: 0;
+  }
+}
+
+// Text Truncate
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Clearfix
+@mixin clearfix {
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+

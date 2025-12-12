@@ -1,0 +1,224 @@
+:root {
+  /* Modern Color Palette */
+  --primary-color: #4CAF50; /* Green for agriculture/nature */
+  --primary-dark: #388E3C;
+  --primary-light: #C8E6C9;
+  --secondary-color: #2c3e50; /* Dark blue-gray for text/sidebar */
+  --accent-color: #FF9800; /* Orange for highlights/warnings */
+  
+  --bg-color: #f4f7f6; /* Light gray background for the app */
+  --card-bg: #ffffff;
+  
+  --text-main: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --text-light: #ecf0f1;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.07);
+  --shadow-lg: 0 10px 15px rgba(0,0,0,0.1);
+  
+  /* Borders */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-color: #e0e0e0;
+  
+  /* Font Family */
+  --font-inter: "Inter", "Inter Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  font-family: var(--font-inter);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-inter) !important;
+  font-size: var(--font-size-base) !important; /* 16px - Consistent */
+  line-height: var(--line-height-normal) !important;
+  font-weight: var(--font-weight-normal) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+/* Utility Classes */
+.shadow-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  transition: box-shadow 0.3s ease;
+}
+
+.shadow-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.text-primary { color: var(--primary-color) !important; }
+.text-secondary { color: var(--text-secondary) !important; }
+
+/* Overrides for existing elements if needed */
+.wrapper {
+  background-color: var(--bg-color);
+}
+
+.main-panel {
+  background-color: var(--bg-color) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Layout adjustments for sidebar */
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure v-app and v-main don't interfere */
+.v-application {
+  min-height: 100vh !important;
+}
+
+.v-main {
+  padding: 0 !important;
+}
+
+/* Modern SaaS Layout - Sidebar Wrapper Pattern */
+.sidebar-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Legacy wrapper support */
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.main-panel,
+.main-content.sidebar-inset {
+  flex: 1;
+  min-width: 0; /* Allows flex item to shrink */
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: visible !important; /* CRITICAL: Must be visible for sticky to work */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure header is visible - Full width layout */
+.main-content.full-width header,
+.main-content.full-width > header,
+.main-content.full-width .top-navbar-modern,
+.main-content.full-width header.top-navbar-modern,
+.main-content.full-width > top-navbar,
+.main-content.full-width top-navbar {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 100 !important;
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  flex-shrink: 0 !important;
+  height: 56px !important;
+  min-height: 56px !important;
+  max-height: 56px !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: #ffffff !important;
+}
+
+@media (max-width: 991px) {
+  .main-content.full-width header,
+  .main-content.full-width > header,
+  .main-content.full-width .top-navbar-modern,
+  .main-content.full-width header.top-navbar-modern,
+  .main-content.full-width > top-navbar,
+  .main-content.full-width top-navbar {
+    height: 52px !important;
+    min-height: 52px !important;
+    max-height: 52px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content.full-width header,
+  .main-content.full-width > header,
+  .main-content.full-width .top-navbar-modern,
+  .main-content.full-width header.top-navbar-modern,
+  .main-content.full-width > top-navbar,
+  .main-content.full-width top-navbar {
+    height: 48px !important;
+    min-height: 48px !important;
+    max-height: 48px !important;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  /* Desktop: Sidebar and content side by side */
+  .main-panel,
+  .main-content.sidebar-inset {
+    margin-left: 0 !important;
+    width: calc(100% - var(--sidebar-width)) !important;
+    flex: 1;
+    transition: width 0.2s ease-linear !important;
+  }
+  
+  /* When sidebar is collapsed */
+  .wrapper.sidebar-collapsed .main-panel,
+  .sidebar-wrapper.sidebar-collapsed .main-content.sidebar-inset {
+    width: calc(100% - var(--sidebar-width-icon)) !important;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  /* Mobile: Content takes full width, sidebar is overlay */
+  .main-panel,
+  .main-content.sidebar-inset {
+    width: 100% !important;
+    margin-left: 0 !important;
+  }
+  
+  .wrapper.sidebar-collapsed .main-panel,
+  .sidebar-wrapper.sidebar-collapsed .main-content.sidebar-inset {
+    width: 100% !important;
+  }
+  
+  /* Ensure sidebar overlay doesn't interfere */
+  .p-component-overlay {
+    z-index: 1099 !important;
+  }
+}
+
+/* Modern Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc; 
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aaa; 
+}

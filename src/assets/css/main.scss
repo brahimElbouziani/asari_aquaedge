@@ -1,0 +1,12 @@
+// ============================================
+// Main SCSS Import File
+// ============================================
+
+// Base (import first - variables must be available)
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/reset';
+
+// Note: Other imports (layouts, components, pages) are loaded per-component
+// to avoid global style conflicts. Import them in individual components as needed.
+

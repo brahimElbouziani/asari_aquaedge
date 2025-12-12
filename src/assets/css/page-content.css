@@ -1,0 +1,178 @@
+/* Global Page Content Styles - Ensure visibility */
+
+/* Ensure all page content respects parent padding for floating buttons */
+.page-content {
+  /* Inherit left padding from parent to maintain consistent margin */
+  padding-left: inherit;
+}
+
+.page-content {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100% !important;
+  min-height: auto !important;
+  padding: 1.5rem;
+  background: #ffffff;
+  color: #1a1a1a;
+  font-family: var(--font-inter, "Inter", sans-serif);
+}
+
+.page-header {
+  display: block !important;
+  visibility: visible !important;
+  margin-bottom: 1.5rem;
+}
+
+.page-header h1 {
+  display: block !important;
+  visibility: visible !important;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: #1a1a1a;
+  font-family: var(--font-inter, "Inter", sans-serif);
+}
+
+/* Ensure all text is visible */
+.page-content * {
+  color: inherit;
+  font-family: inherit;
+}
+
+.page-content p,
+.page-content span,
+.page-content label,
+.page-content h1,
+.page-content h2,
+.page-content h3,
+.page-content h4,
+.page-content h5,
+.page-content h6 {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  color: #1a1a1a;
+}
+
+.page-content p {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+/* Card visibility */
+.page-content .p-card {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin-bottom: 1rem;
+}
+
+.page-content .p-card-body {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.page-content .p-card-content {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  padding: 1rem;
+}
+
+/* Form elements visibility */
+.page-content input,
+.page-content textarea,
+.page-content select,
+.page-content .p-inputtext,
+.page-content .p-textarea,
+.page-content .p-dropdown {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100%;
+  color: #1a1a1a;
+  background: #ffffff;
+}
+
+/* Button visibility */
+.page-content button,
+.page-content .p-button {
+  display: inline-flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Table visibility */
+.page-content table,
+.page-content .p-datatable {
+  display: table !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: 100%;
+}
+
+/* Chart visibility */
+.page-content canvas {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* Ensure all card-body and content containers respect parent padding for floating buttons */
+.content,
+.card-body,
+.card-body *,
+.CCardBody,
+.CCardBody *,
+.v-card,
+.v-card * {
+  /* Respect parent padding - content should not overlap floating buttons */
+  box-sizing: border-box;
+}
+
+/* Ensure content wrapper respects parent padding - CRITICAL for floating buttons */
+.main-content.full-width .content,
+.main-content.full-width .content-wrapper .content,
+.main-content.full-width .content > *,
+.main-content.full-width .content-wrapper .content > * {
+  padding-left: 0 !important; /* Parent has the padding */
+  margin-left: 0 !important;
+  /* Ensure no overlap with floating buttons */
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Card body should respect parent padding */
+.main-content.full-width .card-body,
+.main-content.full-width .CCardBody,
+.main-content.full-width .CCardBody > *,
+.main-content.full-width .p-card-body {
+  padding-left: 0 !important; /* Parent has the padding */
+  margin-left: 0 !important;
+  box-sizing: border-box;
+}
+
+/* Maps page containers - ensure consistent padding */
+.main-content.full-width .maps-page-container,
+.main-content.full-width .maps-content-wrapper,
+.main-content.full-width .maps-col,
+.main-content.full-width .maps-card,
+.main-content.full-width .maps-card-body {
+  padding-left: 0 !important; /* Parent has the padding */
+  margin-left: 0 !important;
+  box-sizing: border-box;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .page-content {
+    padding: 1rem;
+  }
+
+  .page-header h1 {
+    font-size: 1.25rem;
+  }
+}
+

@@ -1,0 +1,67 @@
+// ============================================
+// Table List Page Styles
+// ============================================
+
+@import '../base/variables';
+@import '../base/mixins';
+
+.page-table-list {
+  // Page container
+  .content {
+    padding: 0;
+    margin: 0;
+  }
+
+  // Table card
+  .table-card {
+    padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-xl) var(--spacing-lg);
+  }
+
+  // Table container
+  .table-container {
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+  }
+
+  // Table header
+  .table-header {
+    background-color: var(--primary-color);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    
+    .table-title {
+      margin: 0;
+      color: white;
+      font-weight: 600;
+      font-size: 1.25rem;
+    }
+  }
+
+  // Table content
+  .table-content {
+    padding: var(--spacing-lg);
+    background: var(--bg-white);
+    border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+  }
+
+  // Responsive
+  @include respond-to('mobile') {
+    .table-card {
+      padding: var(--spacing-md);
+    }
+
+    .table-header {
+      padding: var(--spacing-sm);
+      
+      .table-title {
+        font-size: 1rem;
+      }
+    }
+
+    .table-content {
+      padding: var(--spacing-md);
+    }
+  }
+}
+

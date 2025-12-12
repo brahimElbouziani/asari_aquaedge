@@ -1,0 +1,44 @@
+// ============================================
+// CSS Reset & Base Styles
+// ============================================
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-inter, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  color: var(--text-main);
+  background-color: var(--bg-color);
+  line-height: 1.6;
+}
+
+// Ensure all page content respects floating buttons padding
+.main-content.full-width {
+  padding-left: var(--floating-nav-padding-desktop);
+  
+  @media (max-width: 991px) {
+    padding-left: var(--floating-nav-padding-tablet);
+  }
+  
+  @media (max-width: 768px) {
+    padding-left: var(--floating-nav-padding-mobile);
+  }
+}
+
+// Reset content containers to respect parent padding
+.main-content.full-width .content,
+.main-content.full-width .maps-page-container,
+.main-content.full-width .page-content {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+}
+

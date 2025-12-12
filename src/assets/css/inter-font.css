@@ -1,0 +1,181 @@
+/* Inter Font - Global Application with Consistent Sizing */
+:root {
+  --font-inter: "Inter", "Inter Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  
+  /* Consistent Font Sizes - SaaS Standard */
+  --font-size-xs: 0.75rem;      /* 12px */
+  --font-size-sm: 0.875rem;     /* 14px */
+  --font-size-base: 1rem;       /* 16px - Base */
+  --font-size-lg: 1.125rem;     /* 18px */
+  --font-size-xl: 1.25rem;      /* 20px */
+  --font-size-2xl: 1.5rem;      /* 24px */
+  --font-size-3xl: 1.875rem;    /* 30px */
+  
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+}
+
+/* Apply Inter to base elements */
+html {
+  font-family: var(--font-inter) !important;
+  font-size: 16px; /* Base font size */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+#app {
+  font-family: var(--font-inter) !important;
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-normal);
+  font-weight: var(--font-weight-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  color: #111827;
+}
+
+/* Apply Inter to specific text elements with consistent sizing */
+h1 {
+  font-family: var(--font-inter) !important;
+  font-size: var(--font-size-3xl) !important;
+  font-weight: var(--font-weight-bold) !important;
+  line-height: var(--line-height-tight) !important;
+  letter-spacing: -0.02em !important;
+}
+
+h2 {
+  font-family: var(--font-inter) !important;
+  font-size: var(--font-size-2xl) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  line-height: var(--line-height-tight) !important;
+  letter-spacing: -0.015em !important;
+}
+
+h3 {
+  font-family: var(--font-inter) !important;
+  font-size: var(--font-size-xl) !important;
+  font-weight: var(--font-weight-semibold) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+h4, h5, h6 {
+  font-family: var(--font-inter) !important;
+  font-size: var(--font-size-lg) !important;
+  font-weight: var(--font-weight-medium) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+p {
+  font-family: var(--font-inter) !important;
+  font-size: var(--font-size-base) !important;
+  line-height: var(--line-height-normal) !important;
+  font-weight: var(--font-weight-normal) !important;
+}
+
+label {
+  font-family: var(--font-inter) !important;
+  font-size: var(--font-size-sm) !important;
+  font-weight: var(--font-weight-medium) !important;
+  line-height: var(--line-height-normal) !important;
+}
+
+button:not(.pi):not([class*="pi-"]):not([class^="pi-"]):not([class*="fa-"]):not(.material-icons),
+input:not(.pi):not([class*="pi-"]):not([class^="pi-"]),
+select:not(.pi):not([class*="pi-"]):not([class^="pi-"]),
+textarea:not(.pi):not([class*="pi-"]):not([class^="pi-"]),
+.p-component:not(.pi):not([class*="pi-"]):not([class^="pi-"]):not([class*="fa-"]):not(.material-icons),
+.v-application:not(.pi):not([class*="pi-"]):not([class^="pi-"]):not([class*="fa-"]):not(.material-icons) {
+  font-family: var(--font-inter) !important;
+  font-size: var(--font-size-base) !important;
+}
+
+/* Apply Inter to text containers with consistent sizing - but exclude icon elements */
+span:not(.pi):not([class*="pi-"]):not([class^="pi-"]):not([class*="fa-"]):not(.material-icons):not(i),
+div:not(.pi):not([class*="pi-"]):not([class^="pi-"]):not([class*="fa-"]):not(.material-icons):not(i),
+a:not(.pi):not([class*="pi-"]):not([class^="pi-"]):not([class*="fa-"]):not(i),
+li:not(.pi):not([class*="pi-"]):not([class^="pi-"]):not([class*="fa-"]):not(i),
+ul:not(.pi):not([class*="pi-"]):not([class^="pi-"]):not(i),
+ol:not(.pi):not([class*="pi-"]):not([class^="pi-"]):not(i) {
+  font-family: var(--font-inter) !important;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+/* CRITICAL: PrimeIcons MUST use primeicons font - Higher specificity, loaded AFTER */
+.pi,
+[class*="pi-"],
+[class^="pi-"],
+i.pi,
+i[class*="pi-"],
+i[class^="pi-"],
+button .pi,
+button [class*="pi-"],
+button [class^="pi-"],
+span .pi,
+span [class*="pi-"],
+span [class^="pi-"],
+div .pi,
+div [class*="pi-"],
+div [class^="pi-"],
+a .pi,
+a [class*="pi-"],
+a [class^="pi-"],
+.sidebar-toggle-btn .pi,
+.sidebar-toggle-btn [class*="pi-"],
+.sidebar-toggle-btn [class^="pi-"],
+.navbar-icon-btn .pi,
+.navbar-icon-btn [class*="pi-"],
+.navbar-icon-btn [class^="pi-"],
+.user-avatar-btn .pi,
+.user-avatar-btn [class*="pi-"],
+.user-avatar-btn [class^="pi-"],
+.dropdown-item .pi,
+.dropdown-item [class*="pi-"],
+.dropdown-item [class^="pi-"],
+.search-icon.pi,
+.search-icon[class*="pi-"],
+.rail-icon.pi,
+.rail-icon[class*="pi-"],
+i[class*="pi-"],
+i[class^="pi-"] {
+  font-family: 'primeicons' !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  line-height: 1 !important;
+  speak: none !important;
+  display: inline-block !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+/* Material Icons */
+.material-icons,
+.md-icon,
+i.material-icons,
+[class*="material-icons"],
+button .material-icons,
+span .material-icons {
+  font-family: 'Material Icons' !important;
+}
+
+/* Font Awesome */
+[class*="fa-"],
+[class^="fa-"],
+.fa,
+i[class*="fa-"],
+i[class^="fa-"],
+button [class*="fa-"],
+span [class*="fa-"] {
+  font-family: 'Font Awesome 5 Free' !important;
+}

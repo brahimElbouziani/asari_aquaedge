@@ -1,0 +1,433 @@
+#gradient-bar {
+  position: absolute;
+  right: 1.5rem;
+  top: 37%;
+  transform: translateY(-50%);
+  width: 2rem;
+  border-radius: 6px;
+  height: 25rem;
+  background: linear-gradient(
+    to top,
+    red, 
+    orange, 
+    yellow, 
+    green, 
+    #B8E3FF, 
+    #0583D2, 
+    #16558F
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* Added to organize the content vertically */
+}
+
+.bar-container {
+display: flex;
+flex-direction: column;
+height: 90%; /* Adjust as needed */
+justify-content: space-between;
+width: 100%;
+}
+
+.label-top, .label-bottom {
+  white-space: nowrap; 
+  text-align: center;
+  transform: rotate(-90deg);  /* Rotate the labels */
+  width: 100px; /* Adjust the width as necessary */
+  position: absolute; /* Absolutely position the labels to make them overlap the bar */
+}
+
+.label-top {
+ 
+  transform-origin: right bottom; /* This is the pivot point for the rotation */
+  margin-bottom: 0.5rem; 
+
+  top: -21px;
+  right: 100%;
+  color: white;
+
+  background-color: rgba(0, 0, 0, 0.45);
+  border-radius: 0.2rem; 
+ 
+  
+}
+
+.label-bottom {
+  bottom: 80px;
+  right: -1%;
+  transform-origin: right top;
+  margin-top: 0.5rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.45);
+  border-radius: 0.2rem;
+  
+}
+
+
+
+
+#gradient-barbarminmax {
+    position: absolute;
+    right: 1.5rem;
+
+    top: 42%;
+    transform: translateY(-50%);
+    width: 2rem;
+    border-radius: 6px;
+    height: 25rem;
+    background: linear-gradient(
+      to top,
+      red, 
+      green,
+      #0583D2
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+.value {
+    margin-left: auto;
+    margin-right: auto; 
+    color: white;   
+    font-size: 0.8rem;  
+    background-color: rgba(0, 0, 0, 0.137);
+    border-radius: 0.2rem; 
+    width: 80%;  
+    padding: 0.3rem 0;  
+    display: flex;             
+    justify-content: center;   
+    align-items: center;     
+    line-height: 1;    
+}
+
+
+
+.valueminmax {
+    margin-left: auto;
+    margin-right: auto; 
+    color: white;   
+    font-size: 0.8rem;  
+     border-radius: 0.2rem; 
+    width: 80%;  
+    padding: 0.3rem 0;  
+    display: flex;             
+    justify-content: center;   
+    align-items: center;     
+    line-height: 1;    
+}
+
+.map-start {
+    position: absolute;
+    bottom: 6rem;
+    left: 10px;
+    display: flex;
+    flex-direction: row;
+  }
+  
+
+
+  .chart-controls {
+    position: absolute;
+    top: 10px;
+    left: 12.34rem;
+    display: flex;
+    flex-direction: row;
+  }
+
+
+  .checkbox-input {
+    display: none;
+  }
+  
+  .map-check {
+    background: #ffffff;
+    color: rgba(46, 125, 50, 0.9);
+    border: 1.5px solid rgba(46, 125, 50, 0.9);
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 11px;
+    text-align: center;
+    text-decoration: none;
+    margin: 0 2px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    position: relative;
+    padding-left: 28px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .map-check:hover,
+  .map-check.checked {
+    background: rgba(46, 125, 50, 0.9);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(46, 125, 50, 0.3);
+  }
+
+  .map-check i {
+    font-size: 11px;
+  }
+
+  .map-check .label-text {
+    font-size: 11px;
+  }
+  
+  
+
+  
+  
+  .checkbox-input:checked + .label-text::before {
+    /* Add custom checkbox */
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background: #428874; /* Checked color */
+  }
+  
+  
+
+  .map-profondeur {
+    position: absolute;
+    top: 35%;
+    
+    left: 10px;
+    display: grid;
+    flex-direction: row;
+  }
+
+
+  .map-controls {
+    position: absolute;
+    top: 10px;
+     
+    right: 7%;
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .map-button-profondeur {
+    background: #ffffff;
+    color: rgba(46, 125, 50, 0.9);
+    border: 1.5px solid rgba(46, 125, 50, 0.9);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 11px;
+    text-align: center;
+    text-decoration: none;
+    margin: 2px 3px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .map-button-profondeur:hover {
+    background: rgba(46, 125, 50, 0.9);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(46, 125, 50, 0.3);
+  }
+
+  .map-button-profondeur.active-button {
+    background: rgba(46, 125, 50, 0.9);
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(46, 125, 50, 0.4);
+  }
+
+  .map-button-profondeur i {
+    font-size: 10px;
+  }
+
+  .map-button {
+    background: #ffffff;
+    color: rgba(46, 125, 50, 0.9);
+    border: 1.5px solid rgba(46, 125, 50, 0.9);
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    margin: 2px 3px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: 500;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .map-button:hover {
+    background: rgba(46, 125, 50, 0.9);
+    color: #ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(46, 125, 50, 0.3);
+  }
+  
+  .active-button {
+    background: rgba(46, 125, 50, 0.9);
+    color: #ffffff;
+    border: 1.5px solid rgba(46, 125, 50, 0.9);
+    box-shadow: 0 2px 6px rgba(46, 125, 50, 0.4);
+  }
+
+  .map-button i {
+    font-size: 12px;
+  }
+  
+  html,
+  body,
+  #app {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  /* Maps Page Container - Centered Layout - Full Screen */
+  .maps-page-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: #f9fafb;
+    overflow: hidden;
+  }
+
+  /* Ensure maps page respects parent padding for floating buttons */
+  .main-content.full-width .maps-page-container {
+    padding-left: 0 !important; /* Parent has the padding */
+    padding-top: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .maps-content-wrapper {
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 0;
+  }
+
+  .maps-col {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    flex: 1;
+    min-height: 0;
+  }
+
+  .maps-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  .maps-card-body {
+    flex: 1;
+    padding: 0 !important;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    min-height: 0;
+    height: 100%;
+  }
+
+  @media (max-width: 768px) {
+    .maps-page-container {
+      padding: 1rem;
+    }
+
+    /* Ensure maps page respects parent padding on mobile */
+    .main-content.full-width .maps-page-container {
+      padding-left: 0 !important; /* Parent has the padding */
+      padding-top: 1rem;
+      padding-right: 1rem;
+      padding-bottom: 1rem;
+    }
+  }
+  
+  .selected-text {
+    color: black !important;
+  }
+  
+  .selected-card {
+    /* your selected card styles go here */
+    background-color: #eee !important;
+  }
+  
+  .carousel-wrapper {
+    overflow-x: auto;
+  }
+  
+  .scrolling-wrapper {
+    display: flex;
+    cursor: pointer;
+  }
+  
+  .card1 {
+    flex: 0 0 auto;
+    margin-right: 10px;
+    border-radius: 6px;
+    width: 50px;
+    /* Adjust the width as needed */
+    background-color: rgba(46, 125, 50, 0.85);
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+  }
+
+  .card1:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(46, 125, 50, 0.3);
+  }
+  
+  .card1-body {
+    height: 45px;
+    /* Adjust the height as needed */
+    overflow: hidden;
+  }
+  
+  .card1-title {
+    margin-bottom: 1px !important;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .card1-text {
+    color: white;
+    font-size: 10px;
+  }
