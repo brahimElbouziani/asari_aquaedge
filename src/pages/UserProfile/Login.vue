@@ -1222,8 +1222,8 @@ export default {
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
   --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
   --shadow-lg: 0 6px 20px rgba(0, 0, 0, 0.1);
-  --shadow-primary: 0 4px 12px rgba(76, 175, 80, 0.3);
-  --shadow-primary-hover: 0 6px 20px rgba(76, 175, 80, 0.4);
+  --shadow-primary: 0 4px 12px rgba(22, 101, 52, 0.3);
+  --shadow-primary-hover: 0 6px 20px rgba(22, 101, 52, 0.4);
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 20px;
@@ -1234,6 +1234,12 @@ export default {
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
   --spacing-2xl: 2.5rem;
+  
+  // PrimeVue button variables override
+  --p-button-primary-background: linear-gradient(135deg, rgba(22,101,52,.9) 0%, rgba(132,204,22,.8) 100%);
+  --p-button-primary-border-color: transparent;
+  --p-primary-color: rgba(22,101,52,.9);
+  --p-primary-500: rgba(22,101,52,.9);
 }
 
 // ============================================
@@ -1875,6 +1881,15 @@ export default {
 // ============================================
 // BUTTONS
 // ============================================
+// Global PrimeVue button override for primary buttons
+:deep(.primary-button.p-button),
+:deep(.primary-button .p-button) {
+  --p-button-primary-background: linear-gradient(135deg, rgba(22,101,52,.9) 0%, rgba(132,204,22,.8) 100%) !important;
+  --p-button-primary-border-color: transparent !important;
+  --p-primary-color: rgba(22,101,52,.9) !important;
+  --p-primary-500: rgba(22,101,52,.9) !important;
+}
+
 .primary-button {
   width: 100%;
   margin-top: var(--spacing-md);
@@ -1887,15 +1902,22 @@ export default {
     margin-top: var(--spacing-xs);
   }
   
-  :deep(.p-button) {
-    width: 100%;
-    padding: var(--spacing-md) var(--spacing-lg);
-    border-radius: var(--radius-md);
-    font-weight: 600;
-    font-size: 0.9375rem; // 15px - Standard SaaS
-    border: none;
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
-    color: white;
+  :deep(.p-button),
+  :deep(.p-button.p-component),
+  :deep(.p-button.p-button-primary) {
+    width: 100% !important;
+    padding: var(--spacing-md) var(--spacing-lg) !important;
+    border-radius: var(--radius-md) !important;
+    font-weight: 600 !important;
+    font-size: 0.9375rem !important; // 15px - Standard SaaS
+    border: none !important;
+    border-width: 0 !important;
+    border-color: transparent !important;
+    background: linear-gradient(135deg, rgba(22,101,52,.9) 0%, rgba(132,204,22,.8) 100%) !important;
+    background-image: linear-gradient(135deg, rgba(22,101,52,.9) 0%, rgba(132,204,22,.8) 100%) !important;
+    background-color: transparent !important;
+    background-clip: padding-box !important;
+    color: white !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: var(--shadow-primary);
     min-height: 52px;
@@ -1948,22 +1970,39 @@ export default {
       margin-right: 0.5rem;
     }
     
-    &:hover:not(:disabled) {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
-      background: linear-gradient(135deg, var(--primary-hover) 0%, var(--primary-dark) 100%);
+    &:hover:not(:disabled),
+    &:hover:not(:disabled).p-component,
+    &:hover:not(:disabled).p-button-primary {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 8px 20px rgba(22, 101, 52, 0.4) !important;
+      background: linear-gradient(135deg, rgba(22,101,52,1) 0%, rgba(132,204,22,.95) 100%) !important;
+      background-image: linear-gradient(135deg, rgba(22,101,52,1) 0%, rgba(132,204,22,.95) 100%) !important;
+      background-color: transparent !important;
+      background-clip: padding-box !important;
+      border: none !important;
+      border-width: 0 !important;
+      border-color: transparent !important;
     }
     
-    &:active:not(:disabled) {
-      transform: translateY(0);
-      box-shadow: var(--shadow-primary);
+    &:active:not(:disabled),
+    &:focus:not(:disabled),
+    &:active:not(:disabled).p-component,
+    &:focus:not(:disabled).p-component {
+      transform: translateY(0) !important;
+      box-shadow: var(--shadow-primary) !important;
+      background: linear-gradient(135deg, rgba(22,101,52,.9) 0%, rgba(132,204,22,.8) 100%) !important;
+      background-image: linear-gradient(135deg, rgba(22,101,52,.9) 0%, rgba(132,204,22,.8) 100%) !important;
+      background-color: transparent !important;
+      border: none !important;
+      border-color: transparent !important;
     }
     
     &:disabled {
       opacity: 0.6;
       cursor: not-allowed;
       transform: none;
-      background: var(--bg-disabled);
+      background: var(--bg-disabled) !important;
+      background-color: var(--bg-disabled) !important;
     }
     
     @media (max-width: 768px) {
@@ -2321,9 +2360,9 @@ export default {
       }
       
       &:hover {
-        border-color: var(--primary-color);
-        color: var(--primary-color);
-        background: rgba(76, 175, 80, 0.1);
+        border-color: rgba(22,101,52,.9);
+        color: rgba(22,101,52,.9);
+        background: rgba(22, 101, 52, 0.1);
         transform: translateX(-2px);
       }
       
@@ -2848,4 +2887,37 @@ export default {
   }
 }
 
+</style>
+
+<style>
+/* Unscoped styles to override PrimeVue button variables and styles */
+.primary-button.p-button,
+.primary-button .p-button {
+  background: linear-gradient(135deg, rgba(22,101,52,.9) 0%, rgba(132,204,22,.8) 100%) !important;
+  background-image: linear-gradient(135deg, rgba(22,101,52,.9) 0%, rgba(132,204,22,.8) 100%) !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+  color: white !important;
+}
+
+.primary-button.p-button:hover:not(:disabled),
+.primary-button .p-button:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(22,101,52,1) 0%, rgba(132,204,22,.95) 100%) !important;
+  background-image: linear-gradient(135deg, rgba(22,101,52,1) 0%, rgba(132,204,22,.95) 100%) !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+}
+
+.primary-button.p-button:active:not(:disabled),
+.primary-button.p-button:focus:not(:disabled),
+.primary-button .p-button:active:not(:disabled),
+.primary-button .p-button:focus:not(:disabled) {
+  background: linear-gradient(135deg, rgba(22,101,52,.9) 0%, rgba(132,204,22,.8) 100%) !important;
+  background-image: linear-gradient(135deg, rgba(22,101,52,.9) 0%, rgba(132,204,22,.8) 100%) !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-color: transparent !important;
+}
 </style>
