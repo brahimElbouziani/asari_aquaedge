@@ -7,7 +7,7 @@ import axios from 'axios';
 // Create axios instance
 const createApiInstance = () => {
   const instance = axios.create({
-    baseURL: process.env.VUE_APP_API_BASE_URL || 'http://localhost:4247',
+    baseURL: process.env.VUE_APP_API_BASE_URL || 'https://agriedge.ca/asari_platfomr/',
     timeout: 30000,
     headers: {
       'Content-Type': 'application/json',

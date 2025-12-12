@@ -5,7 +5,7 @@ export default () => {
   const token = localStorage.getItem("authToken");
   
   const axiosInstance = axios.create({
-    baseURL: "http://localhost:4247",
+    baseURL: process.env.VUE_APP_API_BASE_URL || 'https://agriedge.ca/asari_platfomr/',
     headers: {
       'Content-Type': 'application/json',
       ...(token && { 'Authorization': `Bearer ${token}` })

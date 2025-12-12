@@ -3,7 +3,7 @@ import Api from '@/services/Api'
 import axios from "axios";
 
 const axiosInstanceaqua = axios.create({
-  baseURL: "http://localhost:4247",
+  baseURL: process.env.VUE_APP_API_BASE_URL || 'https://agriedge.ca/asari_platfomr/',
 });
 
 export default 
